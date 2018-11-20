@@ -2,7 +2,6 @@ package cell;
 
 import cell.walls.Walls;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AbstractCell.
  *
