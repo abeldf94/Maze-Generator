@@ -31,7 +31,7 @@ public abstract class MazeAlgorithm {
 	}
 
 	/**
-	 * All the algorithms must have a start function for it.
+	 * All the algorithms must have a start function.
 	 */
 	public abstract void computeAlgorithm();
 
