@@ -54,20 +54,36 @@ public class Panel extends JPanel {
 			for (int x = 0; x < maze.getWidth(); x++) {				
 				MazeCell cell = maze.getGrid().getElement(x, y);
 				
-				if (cell.isVisited()) {
+				// Draw end and start points
+				if (x == start.getX().intValue() && y == start.getY().intValue()) {
 					Color backup = graphic.getColor();
-					graphic.setColor(Color.PINK);
+					graphic.setColor(Color.GREEN);
+					graphic.fillRect(startX, startY, pixels, pixels);
+					graphic.setColor(backup);
+				} else if (x == end.getX() && y == end.getY().intValue()) {
+					Color backup = graphic.getColor();
+					graphic.setColor(Color.RED);
 					graphic.fillRect(startX, startY, pixels, pixels);
 					graphic.setColor(backup);
 				}
 				
-				if (current != null && current.getX() == cell.getX() && current.getY() == cell.getY()) {
+				// Draw if cell was visited
+				if (cell.isVisited()) {
+					Color backup = graphic.getColor();
+					graphic.setColor(Color.LIGHT_GRAY);
+					graphic.fillRect(startX, startY, pixels, pixels);
+					graphic.setColor(backup);
+				}
+				
+				// Draw current cell 
+				if (current != null && current.getX().equals(cell.getX()) && current.getY().equals(cell.getY())) {
 					Color backup = graphic.getColor();
 					graphic.setColor(Color.MAGENTA);
 					graphic.fillRect(startX, startY, pixels, pixels);
 					graphic.setColor(backup);
 				}
 
+				// Draw walls
 				if (cell.hasNorthWall()) {
 					graphic.drawLine(startX, startY, endX, startY);
 				}
@@ -81,18 +97,6 @@ public class Panel extends JPanel {
 					graphic.drawLine(startX, startY, startX, endY);
 				}
 				
-				// Draw end and start points
-				if (x == start.getX() && y == start.getY()) {
-					Color backup = graphic.getColor();
-					graphic.setColor(Color.GREEN);
-					graphic.fillRect(startX, startY, pixels, pixels);
-					graphic.setColor(backup);
-				} else if (x == end.getX() && y == end.getY()) {
-					Color backup = graphic.getColor();
-					graphic.setColor(Color.RED);
-					graphic.fillRect(startX, startY, pixels, pixels);
-					graphic.setColor(backup);
-				}
 				startX += pixels; 
 				endX += pixels;
 			}

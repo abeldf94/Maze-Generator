@@ -94,16 +94,16 @@ public class RecursiveBacktracker extends MazeAlgorithm {
 	 * @param next the next cell
 	 */
 	private void removeWalls(MazeCell current, MazeCell next) {
-		if (current.getX() != next.getX()) {
+		if (!current.getX().equals(next.getX())) {
 			Integer dif = current.getX() - next.getX();
-			if (dif == 1) {
+			if (dif == 1) { 
 				current.setWest(false);
 				next.setEast(false);
 			} else if (dif == -1) {
 				current.setEast(false);
 				next.setWest(false);
 			}	
-		}else if (current.getY() != next.getY()) {
+		}else if (!current.getY().equals(next.getY())) {
 			Integer dif = current.getY() - next.getY();
 			if (dif == 1) {
 				current.setNorth(false);
@@ -155,10 +155,7 @@ public class RecursiveBacktracker extends MazeAlgorithm {
 	 * @return the maze cell
 	 */
 	private MazeCell chooseRandom(List<MazeCell> neighbors) {
-		if (neighbors.size() > 0) {
-			return neighbors.get(new Random().nextInt(neighbors.size()));
-		} else
-			return null;
+		return (neighbors.size() > 0) ? neighbors.get(new Random().nextInt(neighbors.size())) : null;
 	}
 
 }

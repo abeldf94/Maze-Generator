@@ -3,7 +3,6 @@ package cell;
 import cell.walls.Walls;
 
 /**
- * The Class AbstractCell.
  *
  * @author Abel Delgado Falcón (<a href="mailto:alu0100792218@ull.edu.es">)
  * @version 1.0

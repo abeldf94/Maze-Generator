@@ -61,15 +61,6 @@ public class Matrix {
 		setRows(rows);
 		matrix = new MazeCell[columns][rows];
 	}
-	
-	/**
-	 * Size of the matrix.
-	 *
-	 * @return the size
-	 */
-	public Integer size() {
-		return columns * rows;
-	}
 
 	/**
 	 * Gets the columns size.

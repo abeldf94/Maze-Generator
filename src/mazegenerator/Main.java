@@ -1,5 +1,7 @@
 package mazegenerator;
 
+import javax.swing.UIManager;
+
 /**
  * @author Abel Delgado Falcón (<a href="mailto:alu0100792218@ull.edu.es">)
  * @version 1.0 
@@ -16,6 +18,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		try {
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 			MazeGeneratorController controller = new MazeGeneratorController();
 			controller.enableGUI();
 			controller.generateMaze();
